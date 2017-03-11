@@ -20,3 +20,12 @@
 .content .scroll-content, .content-md .scroll-content {
   margin-top: 150px !important;
 }
+
+ion-header.header::after , ion-header.header-md::after {
+  background-image: none !important;
+}
+
+.show-page .header .toolbar .toolbar-background,
+.show-page .header-md .toolbar-md .toolbar-background-md {
+  background-color: transparent !important;
+}
