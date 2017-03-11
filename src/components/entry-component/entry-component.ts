@@ -27,4 +27,8 @@ export class EntryComponent implements OnChanges {
 
   }
 
+  private toggleCompleted(): void {
+    this.data.completed = !this.data.completed;
+  }
+
 }

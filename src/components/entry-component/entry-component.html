@@ -1,4 +1,4 @@
 <div>
-  <i [className]="'fa '+(data.completed? entryType.icon_completed: entryType.icon)"></i>
+  <i [className]="'fa '+(data.completed? entryType.icon_completed: entryType.icon)" (click)="toggleCompleted(data)"></i>
   <span>{{data.name}}</span>
 </div>
