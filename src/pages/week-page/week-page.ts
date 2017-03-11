@@ -21,9 +21,12 @@ export class WeekPage {
     this.startDay = new Date();
     this.startDay.setDate(this.startDay.getDate()- this.startDay.getDay());
     this.daysToDisplay = [];
-    for(var i =0; i < 7; i++) {
-
+    for(let i =0; i < 7; i++) {
+      let dt = new Date(this.startDay.getTime());
+      dt.setDate(dt.getDate() + i);
+      this.daysToDisplay.push(dt)
     }
+
     this.endDayBuild();
   }
 

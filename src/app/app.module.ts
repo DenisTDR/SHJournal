@@ -35,7 +35,6 @@ import {UtilisService} from "../services/utilis-service";
     MyApp,
     Page1,
     Page2,
-    DayComponent,
     WeekPage,
     EntryConfig
   ],

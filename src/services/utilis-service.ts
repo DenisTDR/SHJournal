@@ -5,13 +5,20 @@ import {Injectable} from "@angular/core";
 
 @Injectable()
 export class UtilisService {
-  public generateRandomString(length?:number) {
-    if(typeof length === 'undefined') {
+  public generateRandomString(length?: number) {
+    if (typeof length === 'undefined') {
       length = 10;
     }
     function randomString(length) {
       return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1);
     }
+
     return randomString(length);
   }
+
+  public getDayName(dayIndex: number) {
+    return this.days[dayIndex];
+  }
+
+  private days: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 }
