@@ -9,12 +9,8 @@
 
 <ion-content padding>
     <h3>WEEK</h3>
-    <h3>{{startDay.getDate()}} - {{endDay.getDate()}}</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
+    <h3 class="days-in-week">{{startDay.getDate()}} - {{endDay.getDate()}}</h3>
+  <div style="text-align:right"><i class="fa fa-plus-circle fa-3x" (click)="addNewDay()"></i></div>
   <day-component></day-component>
   <day-component></day-component>
 </ion-content>

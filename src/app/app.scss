@@ -16,3 +16,7 @@
 // automatically applied to the <body> element in the app.
 
 @import 'font-awesome';
+
+.content .scroll-content, .content-md .scroll-content {
+  margin-top: 150px !important;
+}
