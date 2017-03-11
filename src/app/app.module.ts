@@ -3,13 +3,14 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
-import {DayPage} from "../pages/day-page/day-page";
 import {EntryComponent} from "../components/entry-component/entry-component";
 import {EntryConfig} from "../components/entry-creator/entry-config";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {EntryTypeService} from "../services/entry-type-service";
 import {WeekPage} from "../pages/week-page/week-page";
 import {Ng2Webstorage} from "ng2-webstorage";
+import {EntriesService} from "../services/entries-service";
+import {DayComponent} from "../components/day-component/day-component";
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import {Ng2Webstorage} from "ng2-webstorage";
     MyApp,
     Page1,
     Page2,
-    DayPage,
+    DayComponent,
     WeekPage,
     EntryComponent,
     EntryConfig
@@ -33,13 +34,14 @@ import {Ng2Webstorage} from "ng2-webstorage";
     MyApp,
     Page1,
     Page2,
-    DayPage,
+    DayComponent,
     WeekPage,
     EntryConfig
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     EntryTypeService,
+    EntriesService
     // LocalStorageService
   ]
 })

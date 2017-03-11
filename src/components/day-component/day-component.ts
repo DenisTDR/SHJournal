@@ -5,10 +5,10 @@ import {EntryConfig} from "../../components/entry-creator/entry-config";
 import {EntryModel} from "../../models/entry-model";
 
 @Component({
-    selector: 'day-page',
-    templateUrl: 'day-page.html'
+    selector: 'day-component',
+    templateUrl: 'day-component.html'
 })
-export class DayPage implements OnInit {
+export class DayComponent implements OnInit {
 
     constructor(public navCtrl: NavController,
                 public modalCtrl: ModalController) {

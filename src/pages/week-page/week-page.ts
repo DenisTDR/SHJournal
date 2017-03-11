@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
+import {EntriesService} from "../../services/entries-service";
 
 
 @Component({
@@ -12,7 +13,8 @@ export class WeekPage {
   private pageTitle: string = "Titlu";
   private startDay:Date;
   private endDay:Date;
-  constructor(public navCtrl: NavController) {
+  constructor(private navCtrl: NavController,
+              private entriesService: EntriesService) {
     this.startDay = new Date();
 
   }
