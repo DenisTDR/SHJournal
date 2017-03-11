@@ -1,6 +1,7 @@
-import {Component, ElementRef, ViewChild} from "@angular/core";
+import {Component, ElementRef, ViewChild, OnInit} from "@angular/core";
 import {NavController, NavParams, Gesture} from 'ionic-angular';
 import {WeekPage} from "../week-page/week-page";
+import {MonthPage} from "../month-page/month-page";
 /**
  * Created by NM on 3/11/2017.
  */
@@ -10,17 +11,26 @@ import {WeekPage} from "../week-page/week-page";
   selector: 'home-page',
   templateUrl: 'home-page.html'
 })
-export class HomePage {
+export class HomePage implements OnInit{
+  ngOnInit(): void {
+
+    setTimeout(() => {
+      // this.crtWeek();
+      this.crtMonth();
+    }, 1000)
+  }
 
   onPageWillEnter() {
-
   }
 
   constructor(private navCtrl: NavController) {
 
   }
 
-  public newPage(): void {
+  public crtWeek(): void {
     this.navCtrl.push(WeekPage);
+  }
+  public crtMonth(): void {
+    this.navCtrl.push(MonthPage);
   }
 }

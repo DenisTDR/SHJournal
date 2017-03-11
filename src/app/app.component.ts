@@ -5,6 +5,7 @@ import {StatusBar, Splashscreen} from 'ionic-native';
 
 import {WeekPage} from "../pages/week-page/week-page";
 import {HomePage} from "../pages/home-page/home-page";
+import {MonthPage} from "../pages/month-page/month-page";
 
 
 @Component({
@@ -23,7 +24,8 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       {title: 'Home page', component: HomePage},
-      {title: 'Current week', component: WeekPage, params: {week: new Date()}}
+        {title: 'Current week', component: WeekPage, params: {week: new Date()}},
+      {title: 'Current month', component: MonthPage, params: {week: new Date()}}
     ];
 
   }

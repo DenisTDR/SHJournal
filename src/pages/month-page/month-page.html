@@ -14,5 +14,20 @@
 
 
 <ion-content padding>
-
+  <h2>Month page</h2>
+  <calendar [eventSource]="eventSource"
+            [calendarMode]="calendar.mode"
+            [currentDate]="calendar.currentDate"
+            (onCurrentDateChanged)="onCurrentDateChanged($event)"
+            (onRangeChanged)="reloadSource(startTime, endTime)"
+            (onEventSelected)="onEventSelected($event)"
+            (onTitleChanged)="onViewTitleChanged($event)"
+            (onTimeSelected)="onTimeSelected($event)"
+            step="30"
+            noEventsLabel=""
+            startingDayWeek="1">
+  </calendar>
+  <div>
+    <button ion-button class="button-danger" (click)="gotoSelectedWeek()" [hidden]="!selectedWeekTitle">Go to week {{selectedWeekTitle}}</button>
+  </div>
 </ion-content>

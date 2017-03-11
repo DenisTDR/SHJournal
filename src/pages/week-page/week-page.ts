@@ -22,6 +22,7 @@ export class WeekPage implements OnInit {
 
   public daysToDisplay: Date[];
   public hiddenDays: any[];
+  public weekTitle: string = "";
 
   constructor(private navCtrl: NavController,
               public modalCtrl: ModalController,
@@ -36,7 +37,6 @@ export class WeekPage implements OnInit {
 
   public init() {
 
-
     let week = this.params.get("week");
     if(week) {
       this.startDay = week;
@@ -44,7 +44,12 @@ export class WeekPage implements OnInit {
     else {
       this.startDay = new Date();
     }
-    this.startDay.setDate(this.startDay.getDate() - this.startDay.getDay());
+
+    console.log("init with: ", this.startDay);
+
+    this.startDay.setDate(this.startDay.getDate() - this.startDay.getDay() + 1);
+
+    this.weekTitle = this.utilis.getWeekTitle(this.startDay);
 
     this.daysToDisplay = [];
     this.hiddenDays = [];

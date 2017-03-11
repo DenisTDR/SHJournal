@@ -41,7 +41,7 @@ export class DayComponent implements OnInit, OnChanges {
       this.entries = this.entriesService.getEntriesInDay(this.date);
     }
     this.oldDate = this.date;
-    this.dayName = this.utilis.getDayName(this.date.getDay());
+    this.dayName = this.utilis.getMonthName(this.date) + " " + this.date.getDate() + ", " + this.utilis.getDayName(this.date.getDay());
   }
 
   public addEntry() {

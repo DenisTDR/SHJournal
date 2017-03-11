@@ -15,6 +15,7 @@ import {UtilisService} from "../services/utilis-service";
 import {DaySelector} from "../components/day-selector/day-selector";
 import {HomePage} from "../pages/home-page/home-page";
 import {MonthPage} from "../pages/month-page/month-page";
+import {NgCalendarModule} from "ionic2-calendar";
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {MonthPage} from "../pages/month-page/month-page";
     IonicModule.forRoot(MyApp),
     FormsModule,
     ReactiveFormsModule,
-    Ng2Webstorage
+    Ng2Webstorage,
+    NgCalendarModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
