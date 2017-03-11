@@ -1,6 +1,6 @@
 {
   "name": "SHJournal",
-  "app_id": "",
+  "app_id": "sh.journal",
   "v2": true,
   "typescript": true
 }
