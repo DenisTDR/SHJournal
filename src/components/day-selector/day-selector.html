@@ -1,0 +1,20 @@
+<div class="day-selector">
+    <h2>Day to add:</h2>
+    <form [formGroup]="form">
+        <ion-list>
+
+            <ion-item>
+                <ion-label color="primary" floating>Day</ion-label>
+                <ion-select formControlName="day" okText="Okay" cancelText="Dismiss" >
+                    <ion-option *ngFor="let dayE of daysArray; let i = index" [value]="dayE.date">
+                        {{dayE.name}}
+                    </ion-option>
+
+                </ion-select>
+            </ion-item>
+
+            <button ion-button (click)="cancel()" color="danger">Cancel</button>
+            <button ion-button (click)="save()" color="secondary">Save</button>
+        </ion-list>
+    </form>
+</div>

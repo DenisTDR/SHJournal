@@ -12,8 +12,20 @@
   <h3>WEEK</h3>
   <h3 class="days-in-week">{{startDay.getDate()}} - {{endDay.getDate()}}</h3>
 
-  <div style="text-align:right"><i class="fa fa-plus-circle fa-3x" (click)="addNewDay()"></i></div>
+  <div style="text-align:right"><i class="fa fa-plus-circle fa-3x" (click)="addNewDay()" [hidden]="!hiddenDays || !hiddenDays.length"></i></div>
 
-  <day-component *ngFor="let dayToDisplay of daysToDisplay" [date]="dayToDisplay" ></day-component>
+  <day-component *ngFor="let dayToDisplay of daysToDisplay" [date]="dayToDisplay"></day-component>
 
+  <form [formGroup]="form" [hidden]="true" hidden>
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" floating>Day</ion-label>
+        <ion-select #daySelector formControlName="day" okText="Okay" cancelText="Dismiss" (ionChange)="addDaySelectorChanged()">
+          <ion-option *ngFor="let dayE of hiddenDays; let i = index" [value]="dayE.date">
+            {{dayE.name}}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </form>
 </ion-content>

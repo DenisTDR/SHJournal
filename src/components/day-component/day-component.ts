@@ -1,7 +1,7 @@
 import {Component, OnInit, OnChanges, SimpleChanges} from '@angular/core';
 
 import {NavController, ModalController} from 'ionic-angular';
-import {EntryConfig} from "../entry-creator/entry-config";
+import {EntryConfig} from "../entry-config/entry-config";
 import {EntryModel} from "../../models/entry-model";
 import {UtilisService} from "../../services/utilis-service";
 import {LocalStorageService} from "ng2-webstorage";
@@ -23,7 +23,6 @@ export class DayComponent implements OnInit, OnChanges {
               private utilis: UtilisService,
               private localStorage: LocalStorageService,
               private entriesService: EntriesService) {
-
   }
 
   public entries: EntryModel[] = [
