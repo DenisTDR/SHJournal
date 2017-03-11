@@ -5,7 +5,7 @@ export class EntryTypeService {
   private types: any[] = [
     {id: "task", title: "Task", icon: "fa-circle", icon_completed: "fa-times"},
     {id: "event", title: "Event", icon: "fa-circle-thin", icon_completed: "fa-times"},
-    {id: "note", title: "Note"}
+    {id: "note", title: "Note", icon: "fa-minus"}
   ];
 
   public getTypes() {

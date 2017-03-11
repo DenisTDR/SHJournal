@@ -1,4 +1,4 @@
-<h5>{{dayName}}</h5>
+<h4 class="day-name">{{dayName}}</h4>
 <journal-entry *ngFor="let entry of entries" [data]="entry"></journal-entry>
 
 <button ion-button secondary (click)="addEntry()">+</button>

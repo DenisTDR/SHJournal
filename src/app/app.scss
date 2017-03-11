@@ -29,3 +29,7 @@ ion-header.header::after , ion-header.header-md::after {
 .show-page .header-md .toolbar-md .toolbar-background-md {
   background-color: transparent !important;
 }
+
+.content, .content-md {
+  background-color: #F2F2E9;
+}
