@@ -9,7 +9,8 @@ import {EntryConfig} from "../components/entry-creator/entry-config";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {EntryTypeService} from "../services/entry-type-service";
 import {WeekPage} from "../pages/week-page/week-page";
-import {WebStorageModule} from "angular2-localstorage"
+// import {WebStorageModule, LocalStorageService} from "angular2-localstorage";
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,7 +25,7 @@ import {WebStorageModule} from "angular2-localstorage"
     IonicModule.forRoot(MyApp),
     FormsModule,
     ReactiveFormsModule,
-    WebStorageModule
+    // WebStorageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -35,6 +36,10 @@ import {WebStorageModule} from "angular2-localstorage"
     WeekPage,
     EntryConfig
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, EntryTypeService]
+  providers: [
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    EntryTypeService,
+    // LocalStorageService
+  ]
 })
 export class AppModule {}
