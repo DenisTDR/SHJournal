@@ -14,7 +14,7 @@
 
 
 <ion-content padding>
-  <h2>Month page</h2>
+  <h2>{{pageHeader || "Month page"}}</h2>
   <calendar [eventSource]="eventSource"
             [calendarMode]="calendar.mode"
             [currentDate]="calendar.currentDate"

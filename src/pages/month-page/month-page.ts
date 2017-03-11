@@ -20,6 +20,7 @@ export class MonthPage implements OnInit {
   private selectedWeekTitle: string = null;
   private eventSource: any = [];
   private selectedDate: Date = null;
+  private pageHeader: string = null;
 
   private calendar: any = {
     mode: "month",
@@ -37,7 +38,7 @@ export class MonthPage implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit MonthPagePage');
+    // console.log('ngOnInit MonthPagePage');
     let entries = this.entriesService.getAllEntries();
     this.eventSource = [];
 
@@ -59,11 +60,12 @@ export class MonthPage implements OnInit {
   }
 
   public onCurrentDateChanged($event) {
-    console.log('onCurrentDateChanged');
-    console.log($event);
+    // console.log('onCurrentDateChanged');
+    // console.log($event);
     this.selectedDate = $event;
     this.selectedWeekTitle = this.utilis.getWeekTitle($event);
-    console.log("Set: " + this.selectedWeekTitle);
+    this.pageHeader = this.utilis.getMonthName(this.selectedDate) + " " + this.selectedDate.getFullYear();
+    // console.log("Set: " + this.selectedWeekTitle);
     if ($event.getTime() == this.calendar.currentDate.getTime()) {
       return;
     }
@@ -75,8 +77,8 @@ export class MonthPage implements OnInit {
   }
 
   public onEventSelected($event) {
-    console.log('onEventSelected');
-    console.log($event);
+    // console.log('onEventSelected');
+    // console.log($event);
     this.navCtrl.push(WeekPage, {week: $event.startTime});
   }
 

@@ -45,7 +45,7 @@ export class WeekPage implements OnInit {
       this.startDay = new Date();
     }
 
-    console.log("init with: ", this.startDay);
+    // console.log("init with: ", this.startDay);
 
     this.startDay.setDate(this.startDay.getDate() - this.startDay.getDay() + 1);
 
