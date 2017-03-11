@@ -8,9 +8,24 @@
 }
 
 .week-wrapper {
-  background-color:#376593;
+  background-color:#3073b6;
   color:white;
-  width:100px;
-  height:150px;
+  margin-top: -80px;
+  height:220px;
+  display:flex;
+  align-items: flex-end;
 }
 
+.week-header {
+  margin-top:50px;
+  margin-left:28px;
+}
+
+.new-day-button {
+  position:fixed;
+  right:28px;
+  top:210px;
+
+  float:right;
+
+}
