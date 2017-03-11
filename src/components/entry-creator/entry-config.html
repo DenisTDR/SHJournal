@@ -1,0 +1,28 @@
+<div class="entry-config">
+    <h2>New entry</h2>
+    <form [formGroup]="form">
+        <ion-list>
+
+            <ion-item>
+                <ion-label color="primary" floating>Entry type</ion-label>
+                <ion-select formControlName="type" okText="Okay" cancelText="Dismiss">
+                    <ion-option *ngFor="let entryType of entryTypes; let i = index" [value]="entryType.id">
+                        {{entryType.title}}
+                    </ion-option>
+
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" floating>Entry name</ion-label>
+                <ion-input type="text" formControlName="name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" floating>Entry description</ion-label>
+                <ion-textarea type="text" formControlName="description"></ion-textarea>
+            </ion-item>
+
+            <button ion-button (click)="cancel()" color="danger">Cancel</button>
+            <button ion-button (click)="save()" color="secondary">Save</button>
+        </ion-list>
+    </form>
+</div>
