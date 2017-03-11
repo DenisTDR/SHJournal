@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 
 import {NavController, ModalController} from 'ionic-angular';
 import {EntryConfig} from "../../components/entry-creator/entry-config";
+import {EntryModel} from "../../models/entry-model";
 
 @Component({
     selector: 'day-page',
@@ -14,7 +15,9 @@ export class DayPage implements OnInit {
 
     }
 
-    public entries: any[] = [{name: "prima"}];
+    public entries: EntryModel[] = [
+        {name: "prima", type: "task"}
+        ];
 
     ngOnInit(): void {
         setTimeout(() => {
