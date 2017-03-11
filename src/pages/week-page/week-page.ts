@@ -13,9 +13,11 @@ export class WeekPage {
   private pageTitle: string = "";
   private startDay:Date;
   private endDay:Date;
+
   constructor(private navCtrl: NavController,
               private entriesService: EntriesService) {
     this.startDay = new Date();
+    this.startDay.setDate(this.startDay.getDate()- this.startDay.getDay());
     this.endDayBuild();
   }
 
