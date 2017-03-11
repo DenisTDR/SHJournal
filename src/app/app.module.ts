@@ -7,6 +7,7 @@ import {DayPage} from "../pages/day-page/day-page";
 import {EntryComponent} from "../components/entry-component/entry-component";
 import {EntryConfig} from "../components/entry-creator/entry-config";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
+import {EntryTypeService} from "../services/entry-type-service";
 @NgModule({
   declarations: [
     MyApp,
@@ -29,6 +30,6 @@ import {ReactiveFormsModule, FormsModule} from "@angular/forms";
     DayPage,
     EntryConfig
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, EntryTypeService]
 })
 export class AppModule {}

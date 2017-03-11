@@ -1,1 +1,2 @@
-<p>{{data.name}}</p>
+<i [className]="'fa '+(data.completed? entryType.icon_completed: entryType.icon)"></i> <p>{{data.name}}</p>
+{{data.completed? entryType.icon_completed: entryType.icon}}
