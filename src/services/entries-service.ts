@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {LocalStorageService} from "ng2-webstorage";
 import {EntryModel} from "../models/entry-model";
 import {UtilisService} from "./utilis-service";
-import {view_utils} from "@angular/compiler/src/private_import_core";
+
 /**
  * Created by NM on 3/11/2017.
  */
