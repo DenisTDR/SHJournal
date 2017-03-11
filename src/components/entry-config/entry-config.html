@@ -16,9 +16,10 @@
                 <ion-label color="primary" floating>Entry name</ion-label>
                 <ion-input type="text" formControlName="name"></ion-input>
             </ion-item>
-
-            <button ion-button (click)="cancel()" color="danger">Cancel</button>
-            <button ion-button (click)="save()" color="secondary">Save</button>
+            <div style="display:flex; justify-content: flex-end">
+              <button ion-button class="button-danger"(click)="cancel()">Cancel</button>
+              <button ion-button class="button-ok"(click)="save()" >Save</button>
+            </div>
         </ion-list>
     </form>
 </div>
