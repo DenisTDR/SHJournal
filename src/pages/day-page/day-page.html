@@ -1,17 +1,18 @@
 <ion-header>
-    <ion-navbar>
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-        </button>
-        <ion-title>A day</ion-title>
-    </ion-navbar>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>A day</ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <h3>A day</h3>
+  <h1><i class="fa fa-flag" aria-hidden="true"></i>&nbsp; Font Awesome</h1>
+  <h3>A day</h3>
 
-    <journal-entry *ngFor="let entry of entries" [data]="entry"></journal-entry>
+  <journal-entry *ngFor="let entry of entries" [data]="entry"></journal-entry>
 
-    <button ion-button secondary (click)="addEntry()">+</button>
+  <button ion-button secondary (click)="addEntry()">+</button>
 
 </ion-content>
