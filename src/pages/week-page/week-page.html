@@ -5,14 +5,23 @@
     </button>
     <ion-title text-right>{{pageTitle}}</ion-title>
   </ion-navbar>
+  <div class="week-wrapper">
+    <div class="week-header">
+      <h1>WEEK</h1>
+      <h1 class="days-in-week">{{startDay.getDate()}} - {{endDay.getDate()}}</h1>
+    </div>
+
+  </div>
+
 </ion-header>
 
-<div class="week-wrapper"></div>
-<ion-content padding>
-  <h1>WEEK</h1>
-  <h1 class="days-in-week">{{startDay.getDate()}} - {{endDay.getDate()}}</h1>
 
-  <div style="text-align:right"><i class="fa fa-plus-circle fa-3x" (click)="addNewDay()" [hidden]="!hiddenDays || !hiddenDays.length"></i></div>
+<ion-content padding>
+
+
+
+  <div class="new-day-button"><i class="fa fa-plus-circle fa-3x" (click)="addNewDay()" [hidden]="!hiddenDays || !hiddenDays.length"></i></div>
+
 
   <day-component *ngFor="let dayToDisplay of daysToDisplay" [date]="dayToDisplay"></day-component>
 

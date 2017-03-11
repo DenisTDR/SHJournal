@@ -34,7 +34,7 @@
 }
 
 .content .scroll-content, .content-md .scroll-content {
-  margin-top: 150px !important;
+  //padding-top: 100px !important;
 }
 
 ion-header.header::after , ion-header.header-md::after {
@@ -52,4 +52,8 @@ ion-header.header::after , ion-header.header-md::after {
 
 h1, h2, h3, h4, h5, h6 {
   font-family:"Roboto Condensed",Arial,sans-serif !important;
+}
+
+.header .toolbar .toolbar-title, .header .toolbar .bar-buttons .icon{
+  color:white;
 }
