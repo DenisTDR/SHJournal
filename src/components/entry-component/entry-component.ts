@@ -1,4 +1,3 @@
-
 import {NavController} from "ionic-angular";
 import {Component, OnChanges, SimpleChanges} from "@angular/core";
 import {EntryTypeService} from "../../services/entry-type-service";
@@ -14,7 +13,7 @@ export class EntryComponent implements OnChanges {
   private entryType: any;
 
   constructor(public navCtrl: NavController,
-              private entryTypeService:EntryTypeService ) {
+              private entryTypeService: EntryTypeService) {
 
   }
 
@@ -22,7 +21,7 @@ export class EntryComponent implements OnChanges {
     // console.log("changed data to: ");
     // console.log(this.data);
 
-    this.entryType=this.entryTypeService.getType(this.data.type);
+    this.entryType = this.entryTypeService.getType(this.data.type);
 
 
   }
