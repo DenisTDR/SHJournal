@@ -8,12 +8,14 @@ import {EntryComponent} from "../components/entry-component/entry-component";
 import {EntryConfig} from "../components/entry-creator/entry-config";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {EntryTypeService} from "../services/entry-type-service";
+import {WeekPage} from "../pages/week-page/week-page";
 @NgModule({
   declarations: [
     MyApp,
     Page1,
     Page2,
     DayPage,
+    WeekPage,
     EntryComponent,
     EntryConfig
   ],
@@ -28,6 +30,7 @@ import {EntryTypeService} from "../services/entry-type-service";
     Page1,
     Page2,
     DayPage,
+    WeekPage,
     EntryConfig
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, EntryTypeService]
