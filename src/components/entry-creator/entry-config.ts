@@ -1,6 +1,7 @@
 import {NavController, ViewController} from "ionic-angular";
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {EntryTypeService} from "../../services/entry-type-service";
 /**
  * Created by NM on 3/11/2017.
  */
@@ -10,13 +11,14 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   templateUrl: 'entry-config.html',
   styles: ['entry-config.scss']
 })
-export class EntryConfig {
+export class EntryConfig implements OnInit{
 
   private form: FormGroup;
 
-  constructor(public navCtrl: NavController,
+  constructor(private navCtrl: NavController,
               private formBuilder: FormBuilder,
-              public viewCtrl: ViewController
+              private viewCtrl: ViewController,
+              private entryTypeService: EntryTypeService
   ) {
     this.createForm();
   }
@@ -24,8 +26,7 @@ export class EntryConfig {
   private createForm() :void {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      type: [this.entryTypes[0].id, [Validators.required]],
+      type: ['', [Validators.required]],
     });
   }
 
@@ -39,10 +40,11 @@ export class EntryConfig {
     this.viewCtrl.dismiss(false);
   }
 
-  private entryTypes = [
-    {id: "task", title: "Task"},
-    {id: "event", title: "Event"},
-    {id: "note", title: "Note"}
-  ]
+  private entryTypes:any[] = [ ];
+
+  ngOnInit(): void {
+    this.entryTypes = this.entryTypeService.getTypes();
+    this.form.patchValue({type: this.entryTypes[0].id});
+  }
 
 }

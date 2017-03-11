@@ -9,6 +9,7 @@ import {EntryConfig} from "../components/entry-creator/entry-config";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {EntryTypeService} from "../services/entry-type-service";
 import {WeekPage} from "../pages/week-page/week-page";
+import {WebStorageModule} from "angular2-localstorage"
 @NgModule({
   declarations: [
     MyApp,
@@ -22,7 +23,8 @@ import {WeekPage} from "../pages/week-page/week-page";
   imports: [
     IonicModule.forRoot(MyApp),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    WebStorageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

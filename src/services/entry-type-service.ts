@@ -10,7 +10,6 @@ export class EntryTypeService {
   public getTypes() {
     return this.types;
   }
-
   public getType(name:string){
     for (var i = 0; i<this.types.length; i++)
       if(this.types[i].id == name)

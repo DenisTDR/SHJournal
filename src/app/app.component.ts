@@ -2,9 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { Page1 } from '../pages/page1/page1';
-import { Page2 } from '../pages/page2/page2';
-import {DayPage} from "../pages/day-page/day-page";
+
+import {WeekPage} from "../pages/week-page/week-page";
 
 
 @Component({
@@ -13,7 +12,7 @@ import {DayPage} from "../pages/day-page/day-page";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = DayPage;
+  rootPage: any = WeekPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -22,9 +21,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Day', component: DayPage },
-      { title: 'Page One', component: Page1 },
-      { title: 'Page Two', component: Page2 }
+      { title: 'Current week', component: WeekPage }
     ];
 
   }
