@@ -3,9 +3,9 @@ import {Injectable} from "@angular/core";
 export class EntryTypeService {
 
   private types: any[] = [
-    {id: "task", title: "Task", icon: "fa-circle", icon_completed: "fa-times"},
-    {id: "event", title: "Event", icon: "fa-circle-thin", icon_completed: "fa-times"},
-    {id: "note", title: "Note", icon: "fa-minus"}
+    {id: "task", title: "Task", icon: "fa-circle", icon_completed: "fa-times", completable: true},
+    {id: "event", title: "Event", icon: "fa-circle-thin", icon_completed: "fa-times", completable: true},
+    {id: "note", title: "Note", icon: "fa-minus", completable: false}
   ];
 
   public getTypes() {
