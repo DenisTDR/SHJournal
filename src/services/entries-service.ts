@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {LocalStorageService} from "ng2-webstorage";
 import {EntryModel} from "../models/entry-model";
+import {UtilisService} from "./utilis-service";
 /**
  * Created by NM on 3/11/2017.
  */
@@ -9,15 +10,20 @@ import {EntryModel} from "../models/entry-model";
 export class EntriesService {
   private entries: EntryModel[] = null;
 
-  constructor(private localStorage: LocalStorageService) {
+  constructor(private localStorage: LocalStorageService,
+              private utilis: UtilisService) {
     this.loadEntries();
   }
 
   public getEntriesInInterval(startDate: Date, endDate: Date): EntryModel[] {
     this.loadEntries();
-    var arr:EntryModel[] = [];
-
-    return [];
+    let arr: EntryModel[] = [];
+    this.entries.forEach(entry => {
+      if (startDate < entry.date && entry.date < endDate) {
+        arr.push(entry);
+      }
+    })
+    return arr;
   }
 
   public getAllEntries(): EntryModel[] {
@@ -39,13 +45,14 @@ export class EntriesService {
 
   public addEntry(model: EntryModel) {
     let allEntries = this.getAllEntries();
+    model.id = this.utilis.generateRandomString(20);
     allEntries.push(model);
     this.storeEntries();
   }
 
   private repopulateDates() {
     this.entries.forEach(entry => {
-      if(entry.date && typeof entry.date == 'string') {
+      if (entry.date && typeof entry.date == 'string') {
         entry.date = new Date(entry.date);
       }
     });

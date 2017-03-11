@@ -33,7 +33,7 @@ export class EntryConfig implements OnInit{
   private save() {
     var value = this.form.value;
     console.log(value);
-    this.viewCtrl.dismiss(value);
+    this.viewCtrl.dismiss({entry: value});
   }
 
   private cancel() {

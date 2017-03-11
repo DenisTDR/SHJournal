@@ -11,6 +11,7 @@ import {WeekPage} from "../pages/week-page/week-page";
 import {Ng2Webstorage} from "ng2-webstorage";
 import {EntriesService} from "../services/entries-service";
 import {DayComponent} from "../components/day-component/day-component";
+import {UtilisService} from "../services/utilis-service";
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {DayComponent} from "../components/day-component/day-component";
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     EntryTypeService,
-    EntriesService
+    EntriesService,
+    UtilisService
     // LocalStorageService
   ]
 })

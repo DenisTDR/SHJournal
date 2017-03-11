@@ -1,45 +1,53 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnChanges, SimpleChanges} from '@angular/core';
 
 import {NavController, ModalController} from 'ionic-angular';
 import {EntryConfig} from "../../components/entry-creator/entry-config";
 import {EntryModel} from "../../models/entry-model";
 
 @Component({
-    selector: 'day-component',
-    templateUrl: 'day-component.html'
+  selector: 'day-component',
+  templateUrl: 'day-component.html',
+  inputs: ["day"]
 })
-export class DayComponent implements OnInit {
+export class DayComponent implements OnInit, OnChanges {
 
-    constructor(public navCtrl: NavController,
-                public modalCtrl: ModalController) {
+  public day: Date;
+  public dayName: string = "undefined";
 
-    }
+  constructor(public navCtrl: NavController,
+              public modalCtrl: ModalController) {
 
-    public entries: EntryModel[] = [
-        {name: "prima", type: "task"}
-        ];
+  }
 
-    ngOnInit(): void {
-        setTimeout(() => {
-            // this.addEntry();
-        }, 1000)
-    }
+  public entries: EntryModel[] = [
+    {name: "prima", type: "task"}
+  ];
 
-    private addEntry() {
-        let profileModal = this.modalCtrl.create(EntryConfig, {}, this.entryConfigOptions);
-        profileModal.onDidDismiss(data => {
-            if (!data) {
-                return;
-            }
-            console.log(data);
-            this.entries.push(data);
-        });
-        profileModal.present();
+  ngOnInit(): void {
 
-    }
+  }
 
-    private entryConfigOptions: any = {
-        enableBackdropDismiss: true,
-        showBackdrop: true
-    };
+  ngOnChanges(changes: SimpleChanges): void {
+    this.dayName = this.day.toString().split(' ')[0];
+  }
+
+  private addEntry() {
+    let profileModal = this.modalCtrl.create(EntryConfig, {}, this.entryConfigOptions);
+    profileModal.onDidDismiss(data => {
+      if (!data || !data.entry) {
+        return;
+      }
+      let entry: EntryModel = data.entry;
+      entry.date = this.day;
+      this.entries.push(data);
+    });
+    profileModal.present();
+
+  }
+
+  private entryConfigOptions: any = {
+    enableBackdropDismiss: true,
+    showBackdrop: true
+  };
+
 }

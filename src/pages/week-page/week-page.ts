@@ -14,10 +14,16 @@ export class WeekPage {
   private startDay:Date;
   private endDay:Date;
 
+  private daysToDisplay: Date[];
+
   constructor(private navCtrl: NavController,
               private entriesService: EntriesService) {
     this.startDay = new Date();
     this.startDay.setDate(this.startDay.getDate()- this.startDay.getDay());
+    this.daysToDisplay = [];
+    for(var i =0; i < 7; i++) {
+
+    }
     this.endDayBuild();
   }
 

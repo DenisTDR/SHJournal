@@ -3,5 +3,6 @@ export interface EntryModel {
   type: string,
   date?: Date,
   isMonthly?: boolean,
-  completed?: boolean
+  completed?: boolean,
+  id?: string
 }
