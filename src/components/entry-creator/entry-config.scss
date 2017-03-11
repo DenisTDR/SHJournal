@@ -3,6 +3,27 @@
  */
 
 .entry-config {
-  border: 1px solid black;
-  background: #ffffff;
+  padding:25px;
+  background-color:#233142;
+  border: 1px solid #233142;
+
 }
+.entry-config .item {
+  background-color:#233142;
+  color:white;
+}
+.entry-config h2 {
+  color:white;
+}
+
+.entry-config .label {
+  color: #F95959;
+}
+
+.button-danger {
+  background-color: #F95959;
+}
+.button-ok {
+  background-color: #376593s;
+}
+

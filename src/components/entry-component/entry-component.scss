@@ -1,4 +1,14 @@
 .entry-in-a-day {
-  padding-top:3px;
-  padding-left:10px;
+  padding-top:7px;
+  padding-left:20px;
+  font-size:18px;
+  line-height:26px;
+}
+
+i.entry-in-a-day {
+  color: #F95959;
+}
+
+.completed i,.completed span{
+  color: #a2a2a2;
 }

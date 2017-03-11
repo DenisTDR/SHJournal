@@ -1,4 +1,5 @@
-<div class="entry-in-a-day">
-  <i [className]="'fa '+(data.completed? entryType.icon_completed: entryType.icon)" (click)="toggleCompleted(data)"></i>
+<div [className]="'entry-in-a-day '+ (data.completed? 'completed':'')">
+  <i [className]="'fa '+(data.completed? entryType.icon_completed: entryType.icon)"
+     (click)="toggleCompleted(data)"></i>
   <span>{{data.name}}</span>
 </div>
