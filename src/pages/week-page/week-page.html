@@ -28,7 +28,7 @@
   <form [formGroup]="form" [hidden]="true" hidden>
     <ion-list>
       <ion-item>
-        <ion-label color="primary" floating>Day</ion-label>
+        <ion-label color="primary" floating>New day</ion-label>
         <ion-select #daySelector formControlName="day" okText="Okay" cancelText="Dismiss" (ionChange)="addDaySelectorChanged()">
           <ion-option *ngFor="let dayE of hiddenDays; let i = index" [value]="dayE.date">
             {{dayE.name}}

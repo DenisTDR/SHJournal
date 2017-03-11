@@ -20,11 +20,16 @@ export class UtilisService {
     return this.days[dayIndex];
   }
 
+  public getMonthName(date: Date): string {
+    return date.toLocaleString("en-us", {month: "long"});
+  }
+
   public sameDay(date1: Date, date2: Date): boolean {
     return date1.getFullYear() == date2.getFullYear()
       && date1.getMonth() == date2.getMonth()
       && date1.getDate() == date2.getDate();
   }
+
 
   private days: string[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 }

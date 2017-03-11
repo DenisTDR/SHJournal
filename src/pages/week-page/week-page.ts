@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 
-import {NavController, ModalController} from 'ionic-angular';
+import {NavController, ModalController, NavParams} from 'ionic-angular';
 import {EntriesService} from "../../services/entries-service";
 import {DaySelector} from "../../components/day-selector/day-selector";
 import {FormGroup, Validators, FormBuilder} from "@angular/forms";
@@ -27,34 +27,49 @@ export class WeekPage implements OnInit {
               public modalCtrl: ModalController,
               private entriesService: EntriesService,
               private formBuilder: FormBuilder,
-              private utilis: UtilisService) {
-    this.startDay = new Date();
+              private utilis: UtilisService,
+              private params: NavParams) {
+
+
+    this.init();
+  }
+
+  public init() {
+
+
+    let week = this.params.get("week");
+    if(week) {
+      this.startDay = week;
+    }
+    else {
+      this.startDay = new Date();
+    }
     this.startDay.setDate(this.startDay.getDate() - this.startDay.getDay());
+
     this.daysToDisplay = [];
     this.hiddenDays = [];
+
+    this.endDay = new Date(this.startDay.getTime());
+    this.endDay.setDate(this.endDay.getDate() + 7);
+    this.pageTitle = this.utilis.getMonthName(this.startDay);
+
     for (let i = 0; i < 7; i++) {
       let dt = new Date(this.startDay.getTime());
       dt.setDate(dt.getDate() + i);
       if (this.entriesService.getEntriesInDay(dt).length) {
-
         this.daysToDisplay.push(dt);
       }
       else {
-        this.hiddenDays.push({date: dt, name: this.utilis.getDayName(dt.getDay())});
+        this.hiddenDays.push({
+          date: dt,
+          name: this.utilis.getMonthName(dt) + " " + dt.getDate() + ", " + this.utilis.getDayName(dt.getDay())
+        });
       }
 
       this.form = this.formBuilder.group({
         day: ['', [Validators.required]]
       });
     }
-
-    this.endDayBuild();
-  }
-
-  public endDayBuild() {
-    this.endDay = new Date(this.startDay.getTime());
-    this.endDay.setDate(this.endDay.getDate() + 7);
-    this.pageTitle = this.startDay.toLocaleString("en-us", {month: "long"});
   }
 
   public addNewDay(): void {
@@ -70,20 +85,20 @@ export class WeekPage implements OnInit {
     let formValue = this.form.value;
     let added: boolean = false;
     console.log(this.daysToDisplay);
-    for(let i =1; i < this.daysToDisplay.length; i++) {
-      if(this.daysToDisplay[i] > formValue.day){
-        let dts:any = this.daysToDisplay;
+    for (let i = 1; i < this.daysToDisplay.length; i++) {
+      if (this.daysToDisplay[i] > formValue.day) {
+        let dts: any = this.daysToDisplay;
         dts.splice(i, 0, formValue.day);
         added = true;
         break;
       }
     }
-    if(!added){
+    if (!added) {
       this.daysToDisplay.push(formValue.day);
     }
 
-    for(let i =0; i < this.hiddenDays.length; i++) {
-      if(this.hiddenDays[i].date.getTime() == formValue.day.getTime()){
+    for (let i = 0; i < this.hiddenDays.length; i++) {
+      if (this.hiddenDays[i].date.getTime() == formValue.day.getTime()) {
         this.hiddenDays.splice(i, 1);
         console.log("found at: " + i);
         break;
@@ -91,6 +106,11 @@ export class WeekPage implements OnInit {
     }
 
   }
+
   ngOnInit(): void {
+    this.startDay = this.params.get("week");
+
+    this.init();
   }
+
 }
