@@ -19,6 +19,7 @@ export class EntryConfig implements OnInit {
   private initialEntry: EntryModel = null;
   private edit: boolean = false;
   public maxDate: Date;
+  public isJournalEntry: boolean = false;
 
   constructor(private navCtrl: NavController,
               private formBuilder: FormBuilder,
@@ -37,6 +38,9 @@ export class EntryConfig implements OnInit {
       this.form.patchValue(obj);
       this.edit = true;
     }
+    if(this.params.get("isJournalEntry")) {
+      this.isJournalEntry = true;
+    }
     let dt = new Date();
     dt.setFullYear(dt.getFullYear() + 5);
     this.maxDate = dt;
@@ -45,8 +49,9 @@ export class EntryConfig implements OnInit {
   private createForm(): void {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
-      type: ['', [Validators.required]],
-      date: ['']
+      type: [''],
+      date: [''],
+      description: ['']
     });
   }
 
