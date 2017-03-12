@@ -32,15 +32,36 @@ export class UtilisService {
 
   public getWeekTitle(dateInWeek: Date): string {
     let startDate = new Date(dateInWeek.getTime());
-    startDate.setDate(startDate.getDate() - startDate.getDay() + 1);
+    this.setDateAtWeekstart(startDate);
     let endDate = new Date(startDate.getTime());
     endDate.setDate(endDate.getDate() + 6);
-    if(startDate.getMonth() == endDate.getMonth()){
+    if (startDate.getMonth() == endDate.getMonth()) {
       return startDate.getDate() + " - " + endDate.getDate();
     }
     else {
       return this.getMonthName(startDate) + " " + startDate.getDate() + " - " + this.getMonthName(endDate) + " " + endDate.getDate();
     }
+  }
+
+  public setDateAtWeekstart(date: Date) {
+    if (!date) {
+      return;
+    }
+    let day = date.getDay();
+    if(day == 1) return;
+    let offset = day;
+
+    if (day == 0) {
+      offset = 6;
+    }
+    date.setDate(date.getDate() - offset);
+  }
+
+  public formatSimpleString(date: Date) {
+    let y = date.getFullYear();
+    let m = date.getMonth();
+    let d = date.getDate();
+    return `${y}-${m}-${d}`;
   }
 
   private days: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

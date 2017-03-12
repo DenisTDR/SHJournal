@@ -1,4 +1,4 @@
-<div [className]="'entry-in-a-day '+ (data.completed? 'completed':'')">
+<div [className]="'entry-in-a-day '+ (data.completed? 'completed':'')" (click)="openConfigModal()">
   <i [className]="'fa '+(data.completed? entryType.icon_completed: entryType.icon)"
      (click)="entryType.completable && toggleCompleted(data)"></i>
   <span>{{data.name}}</span>

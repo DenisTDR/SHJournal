@@ -1,10 +1,11 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, QueryList, ViewChildren} from '@angular/core';
 
 import {NavController, ModalController, NavParams} from 'ionic-angular';
 import {EntriesService} from "../../services/entries-service";
 import {DaySelector} from "../../components/day-selector/day-selector";
 import {FormGroup, Validators, FormBuilder} from "@angular/forms";
 import {UtilisService} from "../../services/utilis-service";
+import {DayComponent} from "../../components/day-component/day-component";
 
 
 @Component({
@@ -15,6 +16,8 @@ export class WeekPage implements OnInit {
   private form: FormGroup;
 
   @ViewChild("daySelector") daySelector: any;
+
+  @ViewChildren(DayComponent) dayComponents: QueryList<DayComponent>;
 
   public pageTitle: string = "";
   private startDay: Date;
@@ -50,7 +53,7 @@ export class WeekPage implements OnInit {
 
     // console.log("init with: ", this.startDay);
 
-    this.startDay.setDate(this.startDay.getDate() - this.startDay.getDay() + 1);
+    this.utilis.setDateAtWeekstart(this.startDay);
 
     this.weekTitle = this.utilis.getWeekTitle(this.startDay);
 
@@ -141,4 +144,9 @@ export class WeekPage implements OnInit {
     // this.navCtrl.push(WeekPage, {week: dt});
   }
 
+  public someDayContentChanged($event) {
+    // console.log("someDayContentChanged");
+    this.preInit();
+    this.init();
+  }
 }

@@ -69,4 +69,15 @@ export class EntriesService {
       }
     });
   }
+
+  public updateEntry(entry: EntryModel): void {
+    this.loadEntries();
+    for(let i =0; i < this.entries.length;i++) {
+      if (this.entries[i].id == entry.id) {
+        this.entries[i] = entry;
+        this.storeEntries();
+        break;
+      }
+    }
+  }
 }

@@ -11,7 +11,7 @@
       <div>
         <div class="arrows-container">
           <div class="right" (click)="goBack()"><</div>
-          <h1 >{{weekTitle}}</h1>
+          <h1>{{weekTitle}}</h1>
           <div class="left" (click)="goNext()">></div>
         </div>
       </div>
@@ -24,17 +24,22 @@
 
 <ion-content padding>
 
+  <div class="new-day-button">
+    <i class="fa fa-plus-circle fa-3x"
+       (click)="addNewDay()"
+       [hidden]="!hiddenDays || !hiddenDays.length"></i></div>
 
-
-  <div class="new-day-button"><i class="fa fa-plus-circle fa-3x" (click)="addNewDay()" [hidden]="!hiddenDays || !hiddenDays.length"></i></div>
-
-  <day-component *ngFor="let dayToDisplay of daysToDisplay" [date]="dayToDisplay"></day-component>
+  <day-component *ngFor="let dayToDisplay of daysToDisplay"
+                 [date]="dayToDisplay"
+                 (changed)="someDayContentChanged($event)"
+  ></day-component>
 
   <form [formGroup]="form" [hidden]="true" hidden>
     <ion-list>
       <ion-item>
         <ion-label color="primary" floating>New day</ion-label>
-        <ion-select #daySelector formControlName="day" okText="Okay" cancelText="Dismiss" (ionChange)="addDaySelectorChanged()">
+        <ion-select #daySelector formControlName="day" okText="Okay" cancelText="Dismiss"
+                    (ionChange)="addDaySelectorChanged()">
           <ion-option *ngFor="let dayE of hiddenDays; let i = index" [value]="dayE.date">
             {{dayE.name}}
           </ion-option>

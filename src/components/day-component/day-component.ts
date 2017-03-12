@@ -1,4 +1,4 @@
-import {Component, OnInit, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, OnInit, OnChanges, SimpleChanges, EventEmitter} from '@angular/core';
 
 import {NavController, ModalController} from 'ionic-angular';
 import {EntryConfig} from "../entry-config/entry-config";
@@ -10,13 +10,16 @@ import {EntriesService} from "../../services/entries-service";
 @Component({
   selector: 'day-component',
   templateUrl: 'day-component.html',
-  inputs: ["date"]
+  inputs: ["date"],
+  outputs: ["changed"]
 })
 export class DayComponent implements OnInit, OnChanges {
 
   private oldDate: Date;
   public date: Date;
   public dayName: string = "undefined";
+
+  public changed: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(public navCtrl: NavController,
               public modalCtrl: ModalController,
@@ -37,7 +40,7 @@ export class DayComponent implements OnInit, OnChanges {
     if (!this.date) {
       return;
     }
-    if(!this.oldDate || this.oldDate.getTime() != this.date.getTime()) {
+    if (!this.oldDate || this.oldDate.getTime() != this.date.getTime()) {
       this.entries = this.entriesService.getEntriesInDay(this.date);
     }
     this.oldDate = this.date;
@@ -45,8 +48,8 @@ export class DayComponent implements OnInit, OnChanges {
   }
 
   public addEntry() {
-    let profileModal = this.modalCtrl.create(EntryConfig, {}, this.entryConfigOptions);
-    profileModal.onDidDismiss(data => {
+    let entryModal = this.modalCtrl.create(EntryConfig, {}, this.entryConfigOptions);
+    entryModal.onDidDismiss(data => {
       if (!data || !data.entry) {
         return;
       }
@@ -55,7 +58,19 @@ export class DayComponent implements OnInit, OnChanges {
       this.entries.push(entry);
       this.entriesService.addEntry(entry);
     });
-    profileModal.present();
+    entryModal.present();
+
+  }
+
+  public someEntryChanged(event): void {
+    let entry = event.entry;
+    // console.log("cmp: ", entry.date, this.date);
+    if (!this.utilis.sameDay(entry.date, this.date)) {
+      // console.log("not same day!");
+      this.oldDate = null;
+      // this.ngOnChanges(null);
+      this.changed.emit({entry: entry});
+    }
 
   }
 

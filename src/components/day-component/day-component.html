@@ -1,6 +1,6 @@
 <div class="day-component">
   <h3 class="day-name">{{dayName}}</h3>
-  <journal-entry *ngFor="let entry of entries" [data]="entry"></journal-entry>
+  <journal-entry *ngFor="let entry of entries" [data]="entry" (changed)="someEntryChanged($event)"></journal-entry>
 
   <i class="fa fa-plus entry-in-a-day" (click)="addEntry()"></i>
 

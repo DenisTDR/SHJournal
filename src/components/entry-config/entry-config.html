@@ -1,25 +1,32 @@
 <div class="entry-config">
-    <h2>New entry</h2>
-    <form [formGroup]="form">
-        <ion-list>
+  <h2>{{isEdit?"Edit":"New"}} entry</h2>
+  <form [formGroup]="form" (submit)="save()">
+    <ion-list>
 
-            <ion-item>
-                <ion-label color="light" floating>Entry type</ion-label>
-                <ion-select formControlName="type" okText="Okay" cancelText="Dismiss">
-                    <ion-option *ngFor="let entryType of entryTypes; let i = index" [value]="entryType.id">
-                        {{entryType.title}}
-                    </ion-option>
+      <ion-item>
+        <ion-label color="light" floating>Entry type</ion-label>
+        <ion-select formControlName="type" okText="Okay" cancelText="Dismiss">
+          <ion-option *ngFor="let entryType of entryTypes; let i = index" [value]="entryType.id">
+            {{entryType.title}}
+          </ion-option>
 
-                </ion-select>
-            </ion-item>
-            <ion-item>
-                <ion-label color="light" floating>Entry name</ion-label>
-                <ion-input type="text" formControlName="name"></ion-input>
-            </ion-item>
-            <div style="display:flex; justify-content: flex-end">
-              <button ion-button class="button-danger"(click)="cancel()">Cancel</button>
-              <button ion-button class="button-ok"(click)="save()" >Save</button>
-            </div>
-        </ion-list>
-    </form>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label color="light" floating>Entry name</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="edit">
+        <ion-label>Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY"
+                      formControlName="date"
+                      max="2020-31-12T06:48:43.201Z"
+        ></ion-datetime>
+      </ion-item>
+      <div style="display:flex; justify-content: flex-end">
+        <button ion-button class="button-danger" (click)="cancel($event)">Cancel</button>
+        <button ion-button class="button-ok">Save</button>
+      </div>
+    </ion-list>
+  </form>
 </div>
