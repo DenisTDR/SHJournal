@@ -8,6 +8,7 @@ import {EntryConfig} from "../components/entry-config/entry-config";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {EntryTypeService} from "../services/entry-type-service";
 import {WeekPage} from "../pages/week-page/week-page";
+import {JournalPagePage} from "../pages/journal-page/journal-page";
 import {Ng2Webstorage} from "ng2-webstorage";
 import {EntriesService} from "../services/entries-service";
 import {DayComponent} from "../components/day-component/day-component";
@@ -27,7 +28,8 @@ import {NgCalendarModule} from "ionic2-calendar";
     MonthPage,
     EntryComponent,
     EntryConfig,
-    HomePage
+    HomePage,
+    JournalPagePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -44,7 +46,8 @@ import {NgCalendarModule} from "ionic2-calendar";
     WeekPage,
     EntryConfig,
     HomePage,
-    MonthPage
+    MonthPage,
+    JournalPagePage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
