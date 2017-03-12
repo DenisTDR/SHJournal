@@ -14,7 +14,7 @@ import {MonthPage} from "../pages/month-page/month-page";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = WeekPage;
 
   pages: Array<{title: string, component: any, params?: any}>;
 
@@ -23,7 +23,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      {title: 'Home page', component: HomePage},
+      // {title: 'Home page', component: HomePage},
         {title: 'Current week', component: WeekPage, params: {week: new Date()}},
       {title: 'Current month', component: MonthPage, params: {week: new Date()}}
     ];
