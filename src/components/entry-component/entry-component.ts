@@ -43,7 +43,7 @@ export class EntryComponent implements OnChanges {
   public openConfigModal(): void {
     let entryModal = this.modalCtrl.create(EntryConfig, {entry: this.data}, this.entryConfigOptions);
     entryModal.onDidDismiss(data => {
-      console.log(data);
+      // console.log(data);
       if (data && data.entry) {
         let entry: EntryModel = data.entry;
         this.entriesService.updateEntry(entry);

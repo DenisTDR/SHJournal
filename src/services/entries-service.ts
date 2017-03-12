@@ -17,7 +17,7 @@ export class EntriesService {
               private utilis: UtilisService) {
     this.loadEntries();
 
-    // this.createCalendar();
+    this.createCalendar();
   }
 
   private shCalendar: any;

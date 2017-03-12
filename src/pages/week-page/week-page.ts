@@ -95,7 +95,7 @@ export class WeekPage implements OnInit {
   private addDaySelectorChanged() {
     let formValue = this.form.value;
     let added: boolean = false;
-    console.log(this.daysToDisplay);
+    // console.log(this.daysToDisplay);
     for (let i = 1; i < this.daysToDisplay.length; i++) {
       if (this.daysToDisplay[i] > formValue.day) {
         let dts: any = this.daysToDisplay;
@@ -111,7 +111,7 @@ export class WeekPage implements OnInit {
     for (let i = 0; i < this.hiddenDays.length; i++) {
       if (this.hiddenDays[i].date.getTime() == formValue.day.getTime()) {
         this.hiddenDays.splice(i, 1);
-        console.log("found at: " + i);
+        // console.log("found at: " + i);
         break;
       }
     }
@@ -136,7 +136,7 @@ export class WeekPage implements OnInit {
   }
 
   public goBack(): void {
-    console.log(this.startDay);
+    // console.log(this.startDay);
     var dt = new Date(this.startDay.getTime());
     dt.setDate(dt.getDate() - 7);
     this.startDay = dt;

@@ -61,7 +61,7 @@ export class EntryConfig implements OnInit {
     if (this.initialEntry) {
       value = Object.assign({}, this.initialEntry, value);
     }
-    console.log(value);
+    // console.log(value);
     value.date = new Date(value.date);
     this.viewCtrl.dismiss({entry: value});
   }
