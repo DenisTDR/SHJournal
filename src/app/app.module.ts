@@ -28,8 +28,7 @@ import {NgCalendarModule} from "ionic2-calendar";
     MonthPage,
     EntryComponent,
     EntryConfig,
-    HomePage,
-    JournalPagePage
+    HomePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -46,8 +45,7 @@ import {NgCalendarModule} from "ionic2-calendar";
     WeekPage,
     EntryConfig,
     HomePage,
-    MonthPage,
-    JournalPagePage
+    MonthPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

@@ -25,9 +25,9 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       // {title: 'Home page', component: HomePage},
-        {title: 'Current week', component: WeekPage, params: {week: new Date()}},
-      {title: 'Current month', component: MonthPage, params: {week: new Date()}},
-      {title: 'Journal', component: JournalPagePage, }
+      {title: 'Current week', component: WeekPage, params: {week: new Date()}},
+      {title: 'Current month', component: MonthPage, params: {week: new Date()}}
+      // {title: 'Journal', component: JournalPagePage }
     ];
 
   }
