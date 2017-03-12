@@ -51,7 +51,8 @@ export class EntryConfig implements OnInit {
       name: ['', [Validators.required]],
       type: [''],
       date: [''],
-      description: ['']
+      description: [''],
+      isInCalendar: [false]
     });
   }
 

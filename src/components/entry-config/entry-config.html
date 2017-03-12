@@ -30,6 +30,14 @@
         >
         </ion-textarea>
       </ion-item>
+      <ion-item *ngIf="!edit">
+        <ion-label>
+          Add in phone calendar
+        </ion-label>
+        <ion-checkbox
+          formControlName="isInCalendar"
+        ></ion-checkbox>
+      </ion-item>
       <div style="display:flex; justify-content: flex-end">
         <button ion-button class="button-danger" (click)="cancel($event)">Cancel</button>
         <button ion-button class="button-ok">Save</button>

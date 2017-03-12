@@ -5,5 +5,6 @@ export interface EntryModel {
   isMonthly?: boolean,
   completed?: boolean,
   id?: string,
-  description?:string
+  description?:string,
+  isInCalendar?: string
 }
