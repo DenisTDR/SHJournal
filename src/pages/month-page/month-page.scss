@@ -13,3 +13,53 @@ page-month-page {
     text-align: center;
   }
 }
+page-month-page .content {
+  background-color: #EEEEEE;
+  color:#3073b6;
+}
+
+page-month-page .event-detail-container .item-md {
+  background-color: #EEEEEE;
+  color: #3073b6;
+}
+page-month-page .monthview-current {
+  background-color: #233142 !important;
+  color:#EEEEEE;
+}
+
+td.monthview-selected {
+  background-color: #F95959 !important;
+}
+
+td.monthview-primary-with-event {
+  background-color: #3073b6;
+}
+
+.header .toolbar .back-button {
+  color: #3073b6;
+}
+
+page-month-page table.monthview-datetable td{
+  border:none !important;
+}
+page-month-page table.monthview-datetable th {
+
+    //border-bottom:1px solid #eeeeee !important;
+  }
+page-month-page table.monthview-datetable {
+  border-color: #ffffff !important;
+}
+
+.month-wrapper {
+  background-color:#F95959;
+  color:white;
+  margin-top: -80px;
+  height:220px;
+  display:flex;
+  align-items: flex-end;
+}
+
+.month-header {
+    margin-top:50px;
+    margin-left:28px;
+}
