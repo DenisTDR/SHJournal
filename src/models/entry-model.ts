@@ -4,5 +4,6 @@ export interface EntryModel {
   date?: Date,
   isMonthly?: boolean,
   completed?: boolean,
-  id?: string
+  id?: string,
+  description?:string
 }
