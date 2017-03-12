@@ -89,8 +89,21 @@ export class MonthPage implements OnInit {
   public onTimeSelected($event) {
 
   }
+
   public gotoSelectedWeek() {
     this.navCtrl.push(WeekPage, {week: this.selectedDate});
+  }
+
+  public goNext(): void {
+    var dt = new Date(this.selectedDate.getTime());
+    dt.setMonth(dt.getMonth() + 1);
+    this.calendar.currentDate = dt;
+  }
+
+  public goBack(): void {
+    var dt = new Date(this.selectedDate.getTime());
+    dt.setMonth(dt.getMonth() - 1);
+    this.calendar.currentDate = dt;
   }
 
 }

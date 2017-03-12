@@ -34,7 +34,7 @@ export class UtilisService {
     let startDate = new Date(dateInWeek.getTime());
     startDate.setDate(startDate.getDate() - startDate.getDay() + 1);
     let endDate = new Date(startDate.getTime());
-    endDate.setDate(endDate.getDate() + 7);
+    endDate.setDate(endDate.getDate() + 6);
     if(startDate.getMonth() == endDate.getMonth()){
       return startDate.getDate() + " - " + endDate.getDate();
     }

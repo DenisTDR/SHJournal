@@ -12,7 +12,6 @@ import {Ng2Webstorage} from "ng2-webstorage";
 import {EntriesService} from "../services/entries-service";
 import {DayComponent} from "../components/day-component/day-component";
 import {UtilisService} from "../services/utilis-service";
-import {DaySelector} from "../components/day-selector/day-selector";
 import {HomePage} from "../pages/home-page/home-page";
 import {MonthPage} from "../pages/month-page/month-page";
 import {NgCalendarModule} from "ionic2-calendar";
@@ -28,7 +27,6 @@ import {NgCalendarModule} from "ionic2-calendar";
     MonthPage,
     EntryComponent,
     EntryConfig,
-    DaySelector,
     HomePage
   ],
   imports: [
@@ -45,7 +43,6 @@ import {NgCalendarModule} from "ionic2-calendar";
     Page2,
     WeekPage,
     EntryConfig,
-    DaySelector,
     HomePage,
     MonthPage
   ],

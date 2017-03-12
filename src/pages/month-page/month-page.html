@@ -7,14 +7,18 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>monthPage</ion-title>
+    <ion-title>pageHeader</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h2>{{pageHeader || "Month page"}}</h2>
+  <div class="arrows-container">
+    <div class="right" (click)="goBack()"><</div>
+    <h2>{{pageHeader || "Month page"}}</h2>
+    <div class="left" (click)="goNext()">></div>
+  </div>
   <calendar [eventSource]="eventSource"
             [calendarMode]="calendar.mode"
             [currentDate]="calendar.currentDate"

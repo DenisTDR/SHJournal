@@ -33,3 +33,15 @@
 .input-has-focus .input-wrapper  .label {
   color:white !important;
 }
+
+.arrows-container {
+  .left,
+  .right {
+    font-size: 2em;
+  }
+  display: flex;
+  >* {
+    flex-grow: 1;
+    text-align: center;
+  }
+}

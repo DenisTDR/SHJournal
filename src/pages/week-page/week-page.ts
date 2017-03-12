@@ -31,19 +31,22 @@ export class WeekPage implements OnInit {
               private utilis: UtilisService,
               private params: NavParams) {
 
-
+    this.preInit();
     this.init();
   }
 
-  public init() {
-
+  public preInit() {
     let week = this.params.get("week");
-    if(week) {
+    if (week) {
       this.startDay = week;
     }
     else {
       this.startDay = new Date();
     }
+  }
+
+  public init() {
+
 
     // console.log("init with: ", this.startDay);
 
@@ -55,7 +58,7 @@ export class WeekPage implements OnInit {
     this.hiddenDays = [];
 
     this.endDay = new Date(this.startDay.getTime());
-    this.endDay.setDate(this.endDay.getDate() + 7);
+    this.endDay.setDate(this.endDay.getDate() + 6);
     this.pageTitle = this.utilis.getMonthName(this.startDay);
 
     for (let i = 0; i < 7; i++) {
@@ -81,7 +84,7 @@ export class WeekPage implements OnInit {
     this.daySelector.open();
   }
 
-  private daySelectorModalOptions: any = {
+  public daySelectorModalOptions: any = {
     enableBackdropDismiss: true,
     showBackdrop: true
   };
@@ -113,9 +116,29 @@ export class WeekPage implements OnInit {
   }
 
   ngOnInit(): void {
-    this.startDay = this.params.get("week");
-
+    this.preInit();
     this.init();
+  }
+
+  private navOptions: any = {
+    animation: 'ios-transition'
+  };
+
+  public goNext(): void {
+    var dt = new Date(this.startDay.getTime());
+    dt.setDate(dt.getDate() + 7);
+    this.startDay = dt;
+    this.init();
+    // this.navCtrl.push(WeekPage, {week: dt}, this.navOptions);
+  }
+
+  public goBack(): void {
+    console.log(this.startDay);
+    var dt = new Date(this.startDay.getTime());
+    dt.setDate(dt.getDate() - 7);
+    this.startDay = dt;
+    this.init();
+    // this.navCtrl.push(WeekPage, {week: dt});
   }
 
 }

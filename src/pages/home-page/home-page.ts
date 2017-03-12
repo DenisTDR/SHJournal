@@ -1,5 +1,5 @@
-import {Component, ElementRef, ViewChild, OnInit} from "@angular/core";
-import {NavController, NavParams, Gesture} from 'ionic-angular';
+import {Component, OnInit} from "@angular/core";
+import {NavController} from 'ionic-angular';
 import {WeekPage} from "../week-page/week-page";
 import {MonthPage} from "../month-page/month-page";
 /**
@@ -15,9 +15,9 @@ export class HomePage implements OnInit{
   ngOnInit(): void {
 
     setTimeout(() => {
-      // this.crtWeek();
-      this.crtMonth();
-    }, 1000)
+      this.crtWeek();
+      // this.crtMonth();
+    }, 100);
   }
 
   onPageWillEnter() {

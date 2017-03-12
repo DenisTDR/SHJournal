@@ -8,7 +8,13 @@
   <div class="week-wrapper">
     <div class="week-header">
       <h1>WEEK</h1>
-      <h1 class="days-in-week">{{weekTitle}}</h1>
+      <div>
+        <div class="arrows-container">
+          <div class="right" (click)="goBack()"><</div>
+          <h1 >{{weekTitle}}</h1>
+          <div class="left" (click)="goNext()">></div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -21,7 +27,6 @@
 
 
   <div class="new-day-button"><i class="fa fa-plus-circle fa-3x" (click)="addNewDay()" [hidden]="!hiddenDays || !hiddenDays.length"></i></div>
-
 
   <day-component *ngFor="let dayToDisplay of daysToDisplay" [date]="dayToDisplay"></day-component>
 
