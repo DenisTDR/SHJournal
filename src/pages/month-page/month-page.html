@@ -7,14 +7,17 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>monthPage</ion-title>
+    <ion-title>{{"Month page"}}</ion-title>
   </ion-navbar>
-
+  <div class="month-wrapper">
+    <div class="month-header">
+      <h1 class="days-in-week">{{pageHeader}}</h1>
+    </div>
+  </div>
 </ion-header>
 
 
 <ion-content padding>
-  <h2>{{pageHeader || "Month page"}}</h2>
   <calendar [eventSource]="eventSource"
             [calendarMode]="calendar.mode"
             [currentDate]="calendar.currentDate"
@@ -28,6 +31,6 @@
             startingDayWeek="1">
   </calendar>
   <div>
-    <button ion-button class="button-danger" (click)="gotoSelectedWeek()" [hidden]="!selectedWeekTitle">Go to week {{selectedWeekTitle}}</button>
+    <button ion-button class="button-ok" (click)="gotoSelectedWeek()" [hidden]="!selectedWeekTitle">Go to week {{selectedWeekTitle}}</button>
   </div>
 </ion-content>
