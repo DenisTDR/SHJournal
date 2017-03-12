@@ -5,18 +5,16 @@
     </button>
     <ion-title text-right>{{pageTitle}}</ion-title>
   </ion-navbar>
+
   <div class="week-wrapper">
+    <div class="arrows-container">
+      <div class="right" (click)="goBack()"><i class="right fa fa-angle-left"></i></div>
+      <div class="left" (click)="goNext()" style="text-align:right;"><i class="right fa fa-angle-right"></i></div>
+    </div>
     <div class="week-header">
       <h1>WEEK</h1>
-      <div>
-        <div class="arrows-container">
-          <div class="right" (click)="goBack()"><</div>
-          <h1 >{{weekTitle}}</h1>
-          <div class="left" (click)="goNext()">></div>
-        </div>
-      </div>
+      <h1 class="days-in-week">{{weekTitle}}</h1>
     </div>
-
   </div>
 
 </ion-header>
