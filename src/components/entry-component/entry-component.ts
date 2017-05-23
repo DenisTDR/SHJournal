@@ -35,7 +35,8 @@ export class EntryComponent implements OnChanges {
 
   }
 
-  public toggleCompleted(): void {
+  public toggleCompleted($event): void {
+    $event.preventDefault();
     this.data.completed = !this.data.completed;
     this.entriesService.updateEntry(this.data);
   }

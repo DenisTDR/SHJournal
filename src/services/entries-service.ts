@@ -23,31 +23,31 @@ export class EntriesService {
   private shCalendar: any;
 
   public createCalendar() {
-    // Calendar.listCalendars().then(data => {
-    //   let exists = false;
-      // data.forEach(calendar => {
-      //   if (calendar.name == "StudentHack") {
-      //     exists = true;
-      //   }
-      // });
-      // if (!exists) {
-      //   console.log("creating calendar");
-      //   Calendar.createCalendar('StudentHack').then(
-      //     (msg) => {
-      //       console.log('created calendar StudentHack');
-      //       this.getCalendar();
-      //     },
-      //     (err) => {
-      //       console.log('cant create calendar StudentHack');
-      //     }
-      //   );
-      // }
-      // else {
+    Calendar.listCalendars().then(data => {
+      let exists = false;
+      data.forEach(calendar => {
+        if (calendar.name == "StudentHack") {
+          exists = true;
+        }
+      });
+      if (!exists) {
+        console.log("creating calendar");
+        Calendar.createCalendar('StudentHack').then(
+          (msg) => {
+            console.log('created calendar StudentHack');
+            this.getCalendar();
+          },
+          (err) => {
+            console.log('cant create calendar StudentHack');
+          }
+        );
+      }
+      else {
         this.getCalendar();
-    //   }
-    // }).catch(err => {
-    //   console.log("err, ", err);
-    // });
+      }
+    }).catch(err => {
+      console.log("err, ", err);
+    });
   }
 
   public getCalendar() {
